@@ -2,9 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(pigpio)
 
-set(CMAKE_C_FLAGS "-O3 -Wall -pthread")
 set(PIGPIO_FLAGS "-L. -lrt")
-#set(DESTDIR ${CMAKE_CURRENT_SOURCE_DIR}/build/dest)
 
 if(NOT DEFINED BUILD_SHARED_LIBS)
 set(BUILD_SHARED_LIBS "ON")
