@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.1)
 
 project(pigpio)
 
+find_package (Threads)
 set(PIGPIO_FLAGS "-L. -lrt")
 
 if(NOT DEFINED BUILD_SHARED_LIBS)
@@ -23,6 +24,7 @@ add_executable(x_pigpio x_pigpio.c)
 add_dependencies(x_pigpio pigpio)
 target_link_libraries(x_pigpio
 	${PIGPIO_FLAGS}
+	Threads::Threads
 	-lpigpio
 )
 
@@ -31,6 +33,7 @@ add_executable(x_pigpiod_if x_pigpiod_if.c)
 add_dependencies(x_pigpiod_if pigpiod_if)
 target_link_libraries(x_pigpiod_if
 	${PIGPIO_FLAGS}
+	Threads::Threads
 	-lpigpiod_if
 )
 
@@ -39,6 +42,7 @@ add_executable(x_pigpiod_if2 x_pigpiod_if2.c)
 add_dependencies(x_pigpiod_if2 pigpiod_if2)
 target_link_libraries(x_pigpiod_if2
 	${PIGPIO_FLAGS}
+	Threads::Threads
 	-lpigpiod_if2
 )
 
@@ -47,6 +51,7 @@ add_executable(pigpiod pigpiod.c)
 add_dependencies(pigpiod pigpio)
 target_link_libraries(pigpiod
 	${PIGPIO_FLAGS}
+	Threads::Threads
 	-lpigpio
 )
 
